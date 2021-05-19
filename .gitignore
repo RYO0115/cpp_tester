@@ -35,7 +35,10 @@
 CMakeFiles/
 ./**/CMakeFiles/
 
+cmake_install.cmake
+
 *.txt
 !CMakeLists.txt
+
 
 
