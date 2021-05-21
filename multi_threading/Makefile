@@ -48,24 +48,13 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/adv/workspace/cpp_tester
+CMAKE_SOURCE_DIR = /home/adv/workspace/cpp_tester/multi_threading
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/adv/workspace/cpp_tester
+CMAKE_BINARY_DIR = /home/adv/workspace/cpp_tester/multi_threading
 
 #=============================================================================
 # Targets provided globally by CMake.
-
-# Special rule for the target rebuild_cache
-rebuild_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
-	/usr/bin/cmake -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
-.PHONY : rebuild_cache
-
-# Special rule for the target rebuild_cache
-rebuild_cache/fast: rebuild_cache
-
-.PHONY : rebuild_cache/fast
 
 # Special rule for the target edit_cache
 edit_cache:
@@ -78,16 +67,27 @@ edit_cache/fast: edit_cache
 
 .PHONY : edit_cache/fast
 
+# Special rule for the target rebuild_cache
+rebuild_cache:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
+	/usr/bin/cmake -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+.PHONY : rebuild_cache
+
+# Special rule for the target rebuild_cache
+rebuild_cache/fast: rebuild_cache
+
+.PHONY : rebuild_cache/fast
+
 # The main all target
 all: cmake_check_build_system
-	cd /home/adv/workspace/cpp_tester && $(CMAKE_COMMAND) -E cmake_progress_start /home/adv/workspace/cpp_tester/CMakeFiles /home/adv/workspace/cpp_tester/multi_threading/CMakeFiles/progress.marks
-	cd /home/adv/workspace/cpp_tester && $(MAKE) -f CMakeFiles/Makefile2 multi_threading/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/adv/workspace/cpp_tester/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/adv/workspace/cpp_tester/multi_threading/CMakeFiles /home/adv/workspace/cpp_tester/multi_threading/CMakeFiles/progress.marks
+	$(MAKE) -f CMakeFiles/Makefile2 all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/adv/workspace/cpp_tester/multi_threading/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /home/adv/workspace/cpp_tester && $(MAKE) -f CMakeFiles/Makefile2 multi_threading/clean
+	$(MAKE) -f CMakeFiles/Makefile2 clean
 .PHONY : clean
 
 # The main clean target
@@ -97,18 +97,98 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /home/adv/workspace/cpp_tester && $(MAKE) -f CMakeFiles/Makefile2 multi_threading/preinstall
+	$(MAKE) -f CMakeFiles/Makefile2 preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /home/adv/workspace/cpp_tester && $(MAKE) -f CMakeFiles/Makefile2 multi_threading/preinstall
+	$(MAKE) -f CMakeFiles/Makefile2 preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd /home/adv/workspace/cpp_tester && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	$(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
+
+#=============================================================================
+# Target rules for targets named multi_thread
+
+# Build rule for target.
+multi_thread: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 multi_thread
+.PHONY : multi_thread
+
+# fast build rule for target.
+multi_thread/fast:
+	$(MAKE) -f CMakeFiles/multi_thread.dir/build.make CMakeFiles/multi_thread.dir/build
+.PHONY : multi_thread/fast
+
+#=============================================================================
+# Target rules for targets named mutext_test
+
+# Build rule for target.
+mutext_test: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 mutext_test
+.PHONY : mutext_test
+
+# fast build rule for target.
+mutext_test/fast:
+	$(MAKE) -f CMakeFiles/mutext_test.dir/build.make CMakeFiles/mutext_test.dir/build
+.PHONY : mutext_test/fast
+
+test/multi_thread.o: test/multi_thread.cpp.o
+
+.PHONY : test/multi_thread.o
+
+# target to build an object file
+test/multi_thread.cpp.o:
+	$(MAKE) -f CMakeFiles/multi_thread.dir/build.make CMakeFiles/multi_thread.dir/test/multi_thread.cpp.o
+.PHONY : test/multi_thread.cpp.o
+
+test/multi_thread.i: test/multi_thread.cpp.i
+
+.PHONY : test/multi_thread.i
+
+# target to preprocess a source file
+test/multi_thread.cpp.i:
+	$(MAKE) -f CMakeFiles/multi_thread.dir/build.make CMakeFiles/multi_thread.dir/test/multi_thread.cpp.i
+.PHONY : test/multi_thread.cpp.i
+
+test/multi_thread.s: test/multi_thread.cpp.s
+
+.PHONY : test/multi_thread.s
+
+# target to generate assembly for a file
+test/multi_thread.cpp.s:
+	$(MAKE) -f CMakeFiles/multi_thread.dir/build.make CMakeFiles/multi_thread.dir/test/multi_thread.cpp.s
+.PHONY : test/multi_thread.cpp.s
+
+test/multi_thread_mutex.o: test/multi_thread_mutex.cpp.o
+
+.PHONY : test/multi_thread_mutex.o
+
+# target to build an object file
+test/multi_thread_mutex.cpp.o:
+	$(MAKE) -f CMakeFiles/mutext_test.dir/build.make CMakeFiles/mutext_test.dir/test/multi_thread_mutex.cpp.o
+.PHONY : test/multi_thread_mutex.cpp.o
+
+test/multi_thread_mutex.i: test/multi_thread_mutex.cpp.i
+
+.PHONY : test/multi_thread_mutex.i
+
+# target to preprocess a source file
+test/multi_thread_mutex.cpp.i:
+	$(MAKE) -f CMakeFiles/mutext_test.dir/build.make CMakeFiles/mutext_test.dir/test/multi_thread_mutex.cpp.i
+.PHONY : test/multi_thread_mutex.cpp.i
+
+test/multi_thread_mutex.s: test/multi_thread_mutex.cpp.s
+
+.PHONY : test/multi_thread_mutex.s
+
+# target to generate assembly for a file
+test/multi_thread_mutex.cpp.s:
+	$(MAKE) -f CMakeFiles/mutext_test.dir/build.make CMakeFiles/mutext_test.dir/test/multi_thread_mutex.cpp.s
+.PHONY : test/multi_thread_mutex.cpp.s
 
 # Help Target
 help:
@@ -116,8 +196,16 @@ help:
 	@echo "... all (the default if no target is provided)"
 	@echo "... clean"
 	@echo "... depend"
-	@echo "... rebuild_cache"
 	@echo "... edit_cache"
+	@echo "... rebuild_cache"
+	@echo "... multi_thread"
+	@echo "... mutext_test"
+	@echo "... test/multi_thread.o"
+	@echo "... test/multi_thread.i"
+	@echo "... test/multi_thread.s"
+	@echo "... test/multi_thread_mutex.o"
+	@echo "... test/multi_thread_mutex.i"
+	@echo "... test/multi_thread_mutex.s"
 .PHONY : help
 
 
@@ -129,6 +217,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd /home/adv/workspace/cpp_tester && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	$(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

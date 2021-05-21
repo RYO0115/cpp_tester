@@ -31,10 +31,16 @@ link_directories(
 #add_library(simple_udp SHARED src/simple_udp.cpp)
 
 # Multi Thread
-#set(TEST_NAME "multi_thread")
-#add_executable(${TEST_NAME} 
-#	test/multi_thread.cpp
-#   	)
+set(TEST_NAME "multi_thread")
+add_executable(${TEST_NAME} 
+	test/multi_thread.cpp
+   	)
+
+# Mutex Test
+set(TEST_NAME "mutext_test")
+add_executable(${TEST_NAME} 
+	test/multi_thread_mutex.cpp
+   	)
 
 # Generate new_object_detection from main.cpp
 #set(TEST_NAME "${PROJECT_NAME}_test")

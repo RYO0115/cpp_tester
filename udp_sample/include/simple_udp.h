@@ -33,6 +33,7 @@ public:
 		_addr.sin_family = AF_INET;
 		_addr.sin_addr.s_addr = inet_addr(address);
 		_addr.sin_port = htons(port);
+		//_addr.sin_port = port;
 	}
 	~SimpleUDP()
 	{
@@ -42,8 +43,11 @@ public:
 		}
 	}
 
-	int SendUDP(uint8_t *data, int data_length);
+	//int SendUDP(uint8_t *data, int data_length);
+	//int SendUDP(uint8_t *data, int data_length, int flags);
+	int SendUDP( uint8_t *data, int data_length, struct sockaddr_in addr,int flag);
 	int BindUDP(void);
+	int BindUDP(struct sockaddr_in addr);
 
 	int RecvUDP(uint8_t *data);
 	int RecvUDP(uint8_t *data, struct sockaddr* addr);
@@ -53,6 +57,8 @@ public:
 	int GetSock(void){ return(_sock); }
 
 	uint32_t GetAddr(void){ return((uint32_t)_addr.sin_addr.s_addr); }
+
+	uint32_t GetSInPort(void){ return((uint32_t)_addr.sin_port); }
 
 };
 
