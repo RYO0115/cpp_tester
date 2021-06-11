@@ -32,6 +32,9 @@
 *.app
 
 
+build
+.vscode/
+
 CMakeFiles/
 ./**/CMakeFiles/
 
@@ -42,3 +45,5 @@ cmake_install.cmake
 
 
 
+build/.cmake/api/v1/query/client-vscode/query.json
+.vscode/c_cpp_properties.json

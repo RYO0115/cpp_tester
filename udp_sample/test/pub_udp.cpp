@@ -1,6 +1,7 @@
 
 #include <stdio.h>
 #include <string.h>
+#include <sstream>
 
 #include <thread>
 
@@ -22,11 +23,11 @@ int main(void)
 	addr.sin_port = htons(12345);
 	addr.sin_addr.s_addr = inet_addr("127.0.0.1");
 
-	std::string text= "Hello UDP World!!";
-	sendto(sock[0], text.c_str(), text.length(), 0, (struct sockaddr *) &addr, sizeof(addr));
+	std::string text_str = "Hello UDP World!!";
+	sendto(sock[0], text_str.c_str(), text_str.length(), 0, (struct sockaddr *) &addr, sizeof(addr));
 	addr.sin_port = htons(12346);
-	text = "Hello UDP World!! 12346";
-	sendto(sock[1], text.c_str(), text.length(), 0, (struct sockaddr *) &addr, sizeof(addr));
+	text_str = "Hello UDP World!! 12346";
+	sendto(sock[1], text_str.c_str(), text_str.length(), 0, (struct sockaddr *) &addr, sizeof(addr));
 
 	for(int i=0; i<1000; i++)
 	{
@@ -34,14 +35,14 @@ int main(void)
 		addr.sin_port = htons(12345);
 		addr.sin_addr.s_addr = inet_addr("127.0.0.1");
 
-		std::string text= "Hello UDP World!!";
-		sendto(sock[0], text.c_str(), text.length(), 0, (struct sockaddr *) &addr, sizeof(addr));
+		text_str = "Hello UDP World!!";
+		sendto(sock[0], text_str.c_str(), text_str.length(), 0, (struct sockaddr *) &addr, sizeof(addr));
 
 		if(i%5==0)
 		{
 			addr.sin_port = htons(12346);
-			text = "Hello UDP World!! 12346";
-			sendto(sock[1], text.c_str(), text.length(), 0, (struct sockaddr *) &addr, sizeof(addr));
+			text_str = "Hello UDP World!! 12346";
+			sendto(sock[1], text_str.c_str(), text_str.length(), 0, (struct sockaddr *) &addr, sizeof(addr));
 		}
 	}
 

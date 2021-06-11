@@ -3,7 +3,7 @@
 cmake_minimum_required(VERSION 3.0)
 
 # Project Name and Language
-project(livox_receiver CXX)
+project(udp_sample CXX)
 
 set(CMAKE_CXX_FLAGS "-O2 -Wall -pthread")
 
