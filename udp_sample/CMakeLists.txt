@@ -49,10 +49,10 @@ target_link_libraries(${TEST_NAME}
 
 
 # Multi Thread
-set(TEST_NAME "multi_thread")
-add_executable(${TEST_NAME} 
-	test/multi_thread.cpp
-   	)
+#set(TEST_NAME "multi_thread")
+#add_executable(${TEST_NAME} 
+#	test/multi_thread.cpp
+#   	)
 
 # Generate new_object_detection from main.cpp
 #set(TEST_NAME "${PROJECT_NAME}_test")

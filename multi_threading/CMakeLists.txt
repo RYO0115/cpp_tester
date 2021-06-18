@@ -3,7 +3,7 @@
 cmake_minimum_required(VERSION 3.0)
 
 # Project Name and Language
-project(livox_receiver CXX)
+project(multi_threading CXX)
 
 set(CMAKE_CXX_FLAGS "-O2 -Wall -pthread")
 
@@ -30,17 +30,16 @@ link_directories(
 
 #add_library(simple_udp SHARED src/simple_udp.cpp)
 
-# Multi Thread
-#set(TEST_NAME "multi_thread")
-#add_executable(${TEST_NAME} 
-#	test/multi_thread.cpp
-#   	)
-#
-## Mutex Test
-#set(TEST_NAME "mutext_test")
-#add_executable(${TEST_NAME} 
-#	test/multi_thread_mutex.cpp
-#   	)
+set(TEST_NAME "multi_thread")
+add_executable(${TEST_NAME} 
+	test/multi_thread.cpp
+   	)
+
+# Mutex Test
+set(TEST_NAME "mutex_test")
+add_executable(${TEST_NAME} 
+	test/multi_thread_mutex.cpp
+   	)
 
 # Generate new_object_detection from main.cpp
 #set(TEST_NAME "${PROJECT_NAME}_test")
