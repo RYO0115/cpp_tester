@@ -31,22 +31,35 @@ link_directories(
 add_library(simple_udp SHARED src/simple_udp.cpp)
 
 # udp test code
-set(TEST_NAME "pub_udp")
+#set(TEST_NAME "pub_udp")
+#add_executable(${TEST_NAME} 
+#	test/pub_udp.cpp
+#   	)
+#target_link_libraries(${TEST_NAME}
+#	simple_udp
+#)
+#
+#set(TEST_NAME "sub_udp")
+#add_executable(${TEST_NAME} 
+#	test/sub_udp.cpp
+#   	)
+#target_link_libraries(${TEST_NAME}
+#	simple_udp
+#)
+
+set(TEST_NAME "udp_pub_test")
 add_executable(${TEST_NAME} 
-	test/pub_udp.cpp
+	test/${TEST_NAME}.cpp
    	)
 target_link_libraries(${TEST_NAME}
-	simple_udp
 )
 
-set(TEST_NAME "sub_udp")
+set(TEST_NAME "udp_sub_test")
 add_executable(${TEST_NAME} 
-	test/sub_udp.cpp
+	test/${TEST_NAME}.cpp
    	)
 target_link_libraries(${TEST_NAME}
-	simple_udp
 )
-
 
 # Multi Thread
 #set(TEST_NAME "multi_thread")
