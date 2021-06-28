@@ -2,7 +2,7 @@
 cmake_minimum_required(VERSION 3.0)
 
 # Project Name and Language
-project(new_object_detection CXX)
+project(cpp_tester CXX)
 
 #set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${PROJECT_SOURCE_DIR}/bin)
 #set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${PROJECT_SOURCE_DIR}/lib)
