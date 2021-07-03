@@ -32,8 +32,10 @@ int main(void)
 	addr.sin_port = htons(12345);
 	addr.sin_addr.s_addr = inet_addr("127.0.0.1");
 
+    /*
     std::string text_str;
     std::string text_base_str = "Hello UDP World!! -> ";
+    */
 
     printf("Finsh Setup\n");
 

@@ -33,7 +33,6 @@ void ReceivePacket(struct sockaddr_in addr)
 	int sock = socket(AF_INET, SOCK_DGRAM, 0);
 	bind(sock, (struct sockaddr *)&addr, sizeof(addr));
 
-	//char buf[BUFFER_SIZE];
 	uint8_t tmp_buf[BUFFER_SIZE];
 	uint8_t* p = tmp_buf;
 
@@ -45,11 +44,6 @@ void ReceivePacket(struct sockaddr_in addr)
     while(1)
     {
 	    recv( sock, tmp_buf, sizeof(tmp_buf), 0);
-		//id = tmp_buf[0];
-		//x = tmp_buf[1];
-		//y = tmp_buf[2];
-		//z = tmp_buf[3];
-		//printf("(id,x,y,z)=(%d,%d,%d,%d)\n", id, x, y, z);
 		memcpy( p, tmp_buf, point_size);
 		p += point_size;
 		point_num++;
@@ -112,8 +106,6 @@ void PointPurseMain( int hz )
 		now = std::chrono::system_clock::now();
 		now_process_time = std::chrono::duration_cast<std::chrono::milliseconds>(now-start).count();
 		process_time = (int)(process_target_time - now_process_time);
-
-		//printf("Process Time:%d\n", process_time);
 
 		if(process_time > 0)
 		{
