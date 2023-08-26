@@ -1,5 +1,5 @@
 # Cmake version
-cmake_minimum_required(VERSION 3.0)
+cmake_minimum_required(VERSION 3.5)
 
 # Project Name and Language
 project(thread_sample CXX)
@@ -20,29 +20,19 @@ set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${PROJECT_SOURCE_DIR}/lib)
 
 include_directories(
 	${PROJECT_SOURCE_DIR}/include
-	./include
 	)
 
 link_directories(
-	${PROJECT_SOURCE_DIR}
+	${PROJECT_SOURCE_DIR}/lib
 )
 
-# Generate new_object_detection from main.cpp
-#add_executable(new_object_detection src/main.cpp)
-#add_library(point_type SHARED src/point_type.cpp)
-
-#set(SDK_LIBRARY ${PROJECT_NAME}_static)
-#install(TARGETS ${SDK_LIBRARY}
-#        PUBLIC_HEADER DESTINATION include
-#        ARCHIVE DESTINATION lib
-#        LIBRARY DESTINATION lib)
-
-#add_library(thread_sample STATIC src/thread_sample.cpp)
+add_library(thread_sample STATIC src/thread_sample.cpp)
+target_link_libraries(thread_sample)
 
 add_executable(thread_test test/thread_test.cpp
-                            src/thread_sample.cpp
 )
 target_link_libraries( thread_test
+		thread_sample
 
 )
 
