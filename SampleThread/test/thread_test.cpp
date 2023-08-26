@@ -1,4 +1,4 @@
-#include "thread_sample.hpp"
+#include "sample_thread.hpp"
 
 int main(void)
 {

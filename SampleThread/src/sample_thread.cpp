@@ -1,5 +1,5 @@
 
-#include "thread_sample.hpp"
+#include "sample_thread.hpp"
 
 
 void SampleThread::_Main(void)

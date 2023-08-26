@@ -2,7 +2,7 @@
 cmake_minimum_required(VERSION 3.5)
 
 # Project Name and Language
-project(thread_sample CXX)
+project(sample_thread CXX)
 
 set(CMAKE_CXX_FLAGS "-g -O0 -Wall -pthread -std=c++11")
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${PROJECT_SOURCE_DIR}/bin)
@@ -26,13 +26,13 @@ link_directories(
 	${PROJECT_SOURCE_DIR}/lib
 )
 
-add_library(thread_sample STATIC src/thread_sample.cpp)
-target_link_libraries(thread_sample)
+add_library(sample_thread STATIC src/sample_thread.cpp)
+target_link_libraries(sample_thread)
 
 add_executable(thread_test test/thread_test.cpp
 )
 target_link_libraries( thread_test
-		thread_sample
+		sample_thread
 
 )
 
