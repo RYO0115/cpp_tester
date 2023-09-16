@@ -2,8 +2,6 @@
 #include <chrono>
 #include <mutex>
 
-#include <functional>
-#include <iostream>
 
 class SampleThread
 {
