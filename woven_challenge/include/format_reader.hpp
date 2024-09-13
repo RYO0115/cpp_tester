@@ -34,6 +34,7 @@ namespace specified_format_reader
     {
         /**
          * @brief Create a Heap Node List object
+         * @details Create Heap Node list with pointer of StructDataFormat to save memory.
          * 
          * @param db Input Database
          * @param heap_tree Create binary tree that keeps pointer of database data.
@@ -58,6 +59,7 @@ namespace specified_format_reader
 
         /**
          * @brief Sort funtion using heap sort. 
+         * @details HeapSort is used to save time.
          * 
          * @param heap_tree input default binary tree. This binary tree will be edited and sorted.
          */
@@ -75,7 +77,7 @@ namespace specified_format_reader
         int CountFileDataSize(const std::string &file_name);
 
         /**
-         * @brief 
+         * @brief Purse string line to [long, int] data
          * 
          * @param str std::string data of single line.
          * @param timestamp 1st data of the line

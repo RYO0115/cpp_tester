@@ -22,4 +22,4 @@ project(woven_challenge CXX)
 # Generate new_object_detection from main.cpp
 #add_executable(new_object_detection src/main.cpp)
 
-add_executable(test test.cpp)
+add_executable(prototype prototype.cpp)
