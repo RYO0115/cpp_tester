@@ -37,11 +37,13 @@ Inside of woven_challenge package looks as below.
     |- CmakeLists.txt
     |- Readme.txt
 
-### 1.3.1. Move to build directory
+### 1.3.1. Create & Move to build directory
 
-    cd /path/to/woven_challenge/build
+    mkdir /path/to/woven_challenge/build && cd /path/to/woven_challenge/build
 
 ### 1.3.2. Run cmake
+
+Run cmake in build directory.
 
     cmake ..
 
