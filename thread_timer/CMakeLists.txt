@@ -28,7 +28,13 @@ link_directories(
 	${PROJECT_SOURCE_DIR}
 )
 
-add_library(simple_udp SHARED src/simple_udp.cpp)
+
+add_executable(timer_test test/timer_test.cpp)
+target_link_libraries(timer_test
+)
+
+
+#add_library(simple_udp SHARED src/simple_udp.cpp)
 
 # udp test code
 #set(TEST_NAME "pub_udp")
@@ -47,35 +53,4 @@ add_library(simple_udp SHARED src/simple_udp.cpp)
 #	simple_udp
 #)
 
-set(TEST_NAME "udp_pub_test")
-add_executable(${TEST_NAME} 
-	test/${TEST_NAME}.cpp
-   	)
-target_link_libraries(${TEST_NAME}
-)
 
-set(TEST_NAME "udp_sub_test")
-add_executable(${TEST_NAME} 
-	test/${TEST_NAME}.cpp
-   	)
-target_link_libraries(${TEST_NAME}
-)
-
-# Multi Thread
-#set(TEST_NAME "multi_thread")
-#add_executable(${TEST_NAME} 
-#	test/multi_thread.cpp
-#   	)
-
-# Generate new_object_detection from main.cpp
-#set(TEST_NAME "${PROJECT_NAME}_test")
-#add_executable(${TEST_NAME} test/test_main.cpp )
-#target_link_libraries(${TEST_NAME}
-#	livox_sdk_static
-#)
-
-#set(SDK_LIBRARY ${PROJECT_NAME}_static)
-#install(TARGETS ${SDK_LIBRARY}
-#        PUBLIC_HEADER DESTINATION include
-#        ARCHIVE DESTINATION lib
-#        LIBRARY DESTINATION lib)
